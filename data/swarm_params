@@ -1,0 +1,56 @@
+{
+  "includedFields": [
+    {
+      "fieldName": "time",
+      "fieldType": "datetime"
+    },
+    {
+      "fieldName": "VAR",
+      "fieldType": "float"
+    }
+  ],
+  "streamDef": {
+    "info": "data",
+    "version": 1,
+    "streams": [
+      {
+        "info": "data.csv",
+        "source": "file://Datos\\data.csv",
+        "columns": [
+          "*"
+        ],
+        "last_record": 100
+      }
+    ],
+    "aggregation": {
+      "hours": 0,
+      "microseconds": 0,
+      "seconds": 0,
+      "fields": [
+        [
+          "VAR",
+          "sum"
+        ],
+        [
+          "time",
+          "first"
+        ]
+      ],
+      "weeks": 0,
+      "months": 0,
+      "minutes": 0,
+      "days": 0,
+      "milliseconds": 40,
+      "years": 0
+    }
+  },
+  "inferenceType": "TemporalAnomaly",
+  "inferenceArgs": {
+    "predictionSteps": [
+      1
+    ],
+    "predictedField": "VAR"
+  },
+  "iterationCount": -1,
+  "swarmSize": "medium"
+}
